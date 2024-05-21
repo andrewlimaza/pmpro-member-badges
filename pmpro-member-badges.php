@@ -123,6 +123,17 @@ function pmpromb_getBadgeForLevel($level_id = NULL) {
 	if(empty($url))
 		$url = $default;
 
+	/**
+	 * Filter the badge URL before returning it.
+	 * 
+	 * @since TBD
+	 * 
+	 * @param string $url The URL to the badge image.
+	 * @param int $level_id The ID of the membership level.
+	 * @param WP_User $current_user The current user object.
+	 */
+	$url = apply_filters( 'pmpro_member_badges_badge_url', $url, $level_id, $current_user );
+
 	return $url;
 }
 
