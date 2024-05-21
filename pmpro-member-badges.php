@@ -104,8 +104,8 @@ add_shortcode('pmpro_member_badges','pmpromb_shortcode');	//in case typo
 	Function to get a badge URL for level
 */
 function pmpromb_getBadgeForLevel($level_id = NULL) {
+	global $current_user;
 	if(empty($level_id) && function_exists('pmpro_getMembershipLevelForUser')) {
-		global $current_user;
 		$level = pmpro_getMembershipLevelForUser($current_user->ID);
 		if(!empty($level))
 			$level_id = $level->id;
